@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 234 60% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 40% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 234 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 234 60% 50%;
+
+    --radius: 0.75rem;
+
+    --nav-bg: 230 40% 85%;
+    --nav-foreground: 222 47% 11%;
+    --footer-bg: 0 0% 10%;
+    --footer-foreground: 0 0% 90%;
+    --hero-bg: 222 47% 11%;
+    --hero-foreground: 0 0% 100%;
+    --timeline-line: 234 60% 50%;
+    --timeline-dot: 234 60% 50%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16;
+  }
+  .page-title,
+  .section-title {
+    @apply flex items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-14 text-3xl sm:text-5xl font-bold text-black m-0;
+    font-family: var(--font-body);
+  }
+  .page-title::before,
+  .page-title::after,
+  .section-title::before,
+  .section-title::after {
+    content: "";
+    @apply block h-[3px] w-16 sm:w-28 bg-[#1B365D];
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
